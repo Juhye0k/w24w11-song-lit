@@ -1,13 +1,17 @@
 import './App.css';
 import Container from "./Container.js"
-function App() {
+const App=()=> {
+  const songs=[
+    "사랑에 연습이 있었다면",
+    "사건의 지평선",
+    "사랑은 늘 도망가"
+  ]
+
   return (
     <div>
       <Header/>
-      <Playlist/>
-      <Container title="주저하는 연인들을 위해" index="1"/>
-      <Container title="가을밤에 든 생각" index="2"/>
-      <Container title="뜨거운 여름밤은 가고 남은건 볼품없지만" index="3"/>
+      <Playlist title="프로그래밍하면서 듣고 싶은 노래"
+      listSong={songs}/>
     </div>
   )
 }
@@ -18,9 +22,18 @@ const Header = () => {
   )
 }
 
-const Playlist=()=> {
+const Playlist=(props)=> {
   return (
-      <div className="playlist">프로그래밍하면서 듣고 싶은 노래</div>
+      <div className="playlist">
+        <div className='playlist'>
+          <div className="playlist">{props.title}</div>
+          {
+            props.listSong.map((song,index)=>(
+              <Container key={index} title={song} index={index}/>
+            ))
+          }
+        </div>
+      </div>
   )
 }
 
