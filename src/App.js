@@ -12,18 +12,18 @@ function App() {
   )
 }
 
-function Header() {
+const Header = () => {
   return (
-      <h1>React 프론트엔드 프로그래밍</h1>
+      <h1>React 프로그래밍</h1>
   )
 }
 
-function Playlist() {
+const Playlist=()=> {
   return (
       <div className="playlist">프로그래밍하면서 듣고 싶은 노래</div>
   )
 }
-function Container(props) {
+const Container=(props)=> {
   return (
     <div className="container">
       <a href={`https://www.youtube.com/results?search_query=${props.title}`}>
