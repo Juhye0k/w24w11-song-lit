@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { FaStar } from 'react-icons/fa'
+
 
 const Container = (props) => {
   const [lyricsExpanded, setLyricsExpanded] = useState(false)
@@ -22,6 +24,13 @@ const Container = (props) => {
               {`${props.song.title} (${props.song.singer})`}
             </div>
           </a>
+          {/* Rating을 FaStar Icon으로 출력 */}
+          <div className="song-rating">
+            {/* Spread 연산자 사용 */}
+            {[...Array(props.song.rating)].map((_, index) => (
+              <FaStar key={index} />
+            ))}
+          </div>
         </div>
         {props.song.lyrics && lyricsExpanded && (
             <pre className="song-lyrics" onClick={toggleLyrics}>
